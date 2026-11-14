@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://egp7jc0my5p4"]
 
 [ext_resource type="Script" uid="uid://m60hd6vr6tgh" path="res://main_menu.gd" id="1_06t4h"]
-[ext_resource type="Texture2D" uid="uid://dc4nkg1rpbw17" path="res://moonBC.jpg" id="2_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://uakl2pgg384e" path="res://main.tscn" id="2_7vrkn"]
 
 [node name="MainMenu" type="Control" unique_id=1027220235]
 layout_mode = 3
@@ -12,14 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_06t4h")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1785821874]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_7vrkn")
+[node name="Main" parent="." unique_id=347515192 instance=ExtResource("2_7vrkn")]
 
 [node name="Container" type="VBoxContainer" parent="." unique_id=1300818353]
 layout_mode = 1
@@ -29,9 +22,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -93.5
-offset_top = 37.0
+offset_top = 108.0
 offset_right = 91.0
-offset_bottom = 142.0
+offset_bottom = 213.0
 grow_horizontal = 2
 grow_vertical = 2
 

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://uakl2pgg384e"]
+
+[ext_resource type="Texture2D" uid="uid://d0fbuvxeugf3q" path="res://earth.jpg" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://mhsh04xn688m" path="res://orbit.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://btqdk7sltk4n0" path="res://stars.gdshader" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://snj800itymyw" path="res://earth_spin.gd" id="2_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bftg5a4rx6g8v" path="res://moon.jpg" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://dfv24v3p22yg7" path="res://moon_lock.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://425vg2tvurc1" path="res://satellite.gd" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b6cevb5h83r1k" path="res://cloudsat.glb" id="6_272bh"]
+[ext_resource type="Script" uid="uid://c0braas817whc" path="res://iss.gd" id="8_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cmerg4666vvcd" path="res://iss.glb" id="9_efxa6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_s7rlf"]
+radius = 6.37
+height = 12.74
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51o8a"]
+albedo_texture = ExtResource("1_1bvp3")
+
+[sub_resource type="SphereMesh" id="SphereMesh_0cvp5"]
+radius = 2.5
+height = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfbgu"]
+albedo_texture = ExtResource("3_1bvp3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cvp5"]
+shader = ExtResource("2_0xm2m")
+shader_parameter/space_color = Color(0, 0, 0.015, 1)
+shader_parameter/scale = 120.0
+shader_parameter/density = 0.985
+shader_parameter/brightness = 1.5
+
+[sub_resource type="Sky" id="Sky_s7rlf"]
+sky_material = SubResource("ShaderMaterial_0cvp5")
+
+[sub_resource type="Environment" id="Environment_s7wsd"]
+background_mode = 2
+sky = SubResource("Sky_s7rlf")
+ambient_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D" unique_id=347515192]
+
+[node name="Earth" type="Node3D" parent="." unique_id=1806706761]
+
+[node name="Planet" type="MeshInstance3D" parent="Earth" unique_id=2084636513]
+mesh = SubResource("SphereMesh_s7rlf")
+surface_material_override/0 = SubResource("StandardMaterial3D_51o8a")
+script = ExtResource("2_lquwl")
+
+[node name="Satelite" type="Node3D" parent="Earth" unique_id=851954431]
+script = ExtResource("1_ig7tw")
+
+[node name="pivot" type="Node3D" parent="Earth/Satelite" unique_id=919497988]
+script = ExtResource("4_7mycd")
+
+[node name="Mesh" type="MeshInstance3D" parent="Earth/Satelite/pivot" unique_id=146552533]
+mesh = SubResource("SphereMesh_0cvp5")
+surface_material_override/0 = SubResource("StandardMaterial3D_cfbgu")
+
+[node name="SatOrbit" type="Node3D" parent="Earth" unique_id=644525345]
+script = ExtResource("6_5vw27")
+raan_deg = 45.0
+draw_orbit_line = false
+
+[node name="Sat" type="Node3D" parent="Earth/SatOrbit" unique_id=160960822]
+
+[node name="cloudsat" parent="Earth/SatOrbit/Sat" unique_id=1095143350 instance=ExtResource("6_272bh")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="ISSOrbit" type="Node3D" parent="Earth" unique_id=507612908]
+script = ExtResource("8_4c57u")
+
+[node name="ISS" type="Node3D" parent="Earth/ISSOrbit" unique_id=1309446498]
+
+[node name="iss" parent="Earth/ISSOrbit/ISS" unique_id=233760186 instance=ExtResource("9_efxa6")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1753552218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=761861267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, 53)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=538110828]
+environment = SubResource("Environment_s7wsd")
