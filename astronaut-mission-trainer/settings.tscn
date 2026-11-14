@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0dwxrcqdfirs" path="res://settings.gd" id="1_nkug2"]
 [ext_resource type="Texture2D" uid="uid://0x2r01c4fut8" path="res://optionsBC.webp" id="1_x2hje"]
+[ext_resource type="LabelSettings" uid="uid://dypfir4vn6xap" path="res://Outstanding.tres" id="3_3ykye"]
 
 [node name="SettingsMenu" type="Control" unique_id=1077047704]
 layout_mode = 3
@@ -37,7 +38,7 @@ offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.9915818, 1.1586666)
-color = Color(0.3892863, 0.38928673, 0.3892865, 0.8901961)
+color = Color(0.3882353, 0.3882353, 0.3882353, 0.8901961)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1330661698]
 layout_mode = 1
@@ -59,6 +60,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=109757458]
 layout_mode = 2
 text = "SETTINGS"
+label_settings = ExtResource("3_3ykye")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1718744550]
 layout_mode = 2

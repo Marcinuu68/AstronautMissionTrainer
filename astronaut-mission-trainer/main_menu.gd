@@ -1,7 +1,7 @@
 extends Control
 
 # Ścieżka do sceny właściwej gry (zmień na swoją nazwę pliku)
-@export_file("*.tscn") var game_scene_path: String = "res://game.tscn"
+@export_file("*.tscn") var game_scene_path: String = "res://box.tscn"
 
 # Ścieżka do sceny opcji (opcjonalnie)
 @export_file("*.tscn") var options_scene_path: String = "res://settings.tscn"
