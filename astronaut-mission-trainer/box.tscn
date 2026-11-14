@@ -1,49 +1,13 @@
 [gd_scene format=3 uid="uid://dcoc7f86cw507"]
 
+[ext_resource type="Texture2D" uid="uid://c86m83g1xhfl8" path="res://moon_macro_01_disp_1k.png" id="1_oq5cr"]
+[ext_resource type="Terrain3DMaterial" uid="uid://b7n0v0wcw7bsg" path="res://new_terrain_3d_material.tres" id="2_bqn3j"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7a8a"]
-albedo_color = Color(1, 0.78431374, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_oyhfb"]
-offsets = PackedFloat32Array(0.2, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_g2tbl"]
-noise_type = 2
-frequency = 0.03
-cellular_jitter = 3.0
-cellular_return_type = 0
-domain_warp_enabled = true
-domain_warp_type = 1
-domain_warp_amplitude = 50.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_lacunarity = 1.5
-domain_warp_fractal_gain = 1.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oq5cr"]
-noise = SubResource("FastNoiseLite_g2tbl")
-color_ramp = SubResource("Gradient_oyhfb")
-seamless = true
-
-[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_bqn3j"]
-_shader_parameters = {
-&"bias_distance": null,
-&"blend_sharpness": null,
-&"depth_blur": null,
-&"enable_macro_variation": null,
-&"enable_projection": null,
-&"flat_terrain_normals": null,
-&"macro_variation1": null,
-&"macro_variation2": null,
-&"macro_variation_slope": null,
-&"mipmap_bias": null,
-&"noise1_angle": null,
-&"noise1_offset": null,
-&"noise1_scale": null,
-&"noise2_scale": null,
-&"noise_texture": SubResource("NoiseTexture2D_oq5cr"),
-&"projection_threshold": null
-}
-show_checkered = true
+albedo_color = Color(0.7729092, 0.80857396, 0.964927, 1)
+albedo_texture = ExtResource("1_oq5cr")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n43a"]
 transparency = 4
@@ -73,7 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24951851, 0, 0)
 material_override = SubResource("StandardMaterial3D_u7a8a")
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=41354709]
-material = SubResource("Terrain3DMaterial_bqn3j")
+data_directory = "res://"
+material = ExtResource("2_bqn3j")
 assets = SubResource("Terrain3DAssets_amiuo")
 show_checkered = true
 top_level = true
