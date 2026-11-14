@@ -4,7 +4,7 @@ extends Control
 @export_file("*.tscn") var main_menu_path: String = "res://main_menu.tscn"
 
 # Referencje do węzłów (dostosuj ścieżki, jeśli Twoja struktura węzłów jest inna)
-@onready var volume_slider: HSlider = $VBoxContainer/Volume
+@onready var volume_slider: HSlider = $VBoxContainer/HBoxContainer/Volume
 @onready var fullscreen_toggle: CheckButton = $"VBoxContainer/Fullscreen switch"
 
 func _ready() -> void:

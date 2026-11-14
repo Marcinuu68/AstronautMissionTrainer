@@ -19,30 +19,70 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.003759)
 texture = ExtResource("1_x2hje")
 
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=398830932]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9915818, 1.1586666)
+color = Color(0.3892863, 0.38928673, 0.3892865, 0.8901961)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1330661698]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -84.5
+offset_right = 118.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=109757458]
 layout_mode = 2
 text = "SETTINGS"
 
-[node name="Volume" type="HSlider" parent="VBoxContainer" unique_id=149205536]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1718744550]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=33244692]
+layout_mode = 2
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=149205536]
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 200.0
 value = 100.0
+ticks_position = 2
 
 [node name="Fullscreen switch" type="CheckButton" parent="VBoxContainer" unique_id=101162984]
 layout_mode = 2
+button_pressed = true
 text = "Fullscreen"
 
 [node name="Return" type="Button" parent="VBoxContainer" unique_id=1432651461]
 layout_mode = 2
 text = "Return"
 
-[connection signal="value_changed" from="VBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
 [connection signal="toggled" from="VBoxContainer/Fullscreen switch" to="." method="_on_check_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_back_button_pressed"]
