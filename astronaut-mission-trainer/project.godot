@@ -15,7 +15,10 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="AstronautMissionTrainer"
+<<<<<<< HEAD
 run/main_scene="uid://bdagjaxjd77s7"
+=======
+>>>>>>> c0c7c13fdc689121a46d0e9d4da7a9c69db2b741
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +27,7 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+<<<<<<< HEAD
 [input]
 
 move_forward={
@@ -52,6 +56,8 @@ interact={
 ]
 }
 
+=======
+>>>>>>> c0c7c13fdc689121a46d0e9d4da7a9c69db2b741
 [physics]
 
 3d/physics_engine="Jolt Physics"
