@@ -1,0 +1,424 @@
+[gd_scene format=3 uid="uid://8dxl5nvtm6hp"]
+
+[ext_resource type="Material" uid="uid://b15v0inhwfvd6" path="res://glass_material.tres" id="1_fhddm"]
+[ext_resource type="PackedScene" uid="uid://cx1g48yn5okm5" path="res://player.tscn" id="2_pxydv"]
+[ext_resource type="PackedScene" uid="uid://cgjxgugom5kwy" path="res://Ksiezyc.glb" id="3_einyj"]
+[ext_resource type="Texture2D" uid="uid://qbk7empc6rw6" path="res://lroc_color_2k.jpg" id="4_3wvtt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_72dti"]
+sky_top_color = Color(0.010018826, 0.0121177845, 0.013397965, 1)
+sky_horizon_color = Color(0.19490182, 0.19610426, 0.19828585, 1)
+ground_bottom_color = Color(0.16650656, 0.16921738, 0.17666358, 1)
+ground_horizon_color = Color(0.19490182, 0.19610426, 0.19828585, 1)
+
+[sub_resource type="Sky" id="Sky_uon1x"]
+sky_material = SubResource("ProceduralSkyMaterial_72dti")
+
+[sub_resource type="Environment" id="Environment_lg26c"]
+background_mode = 2
+sky = SubResource("Sky_uon1x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nmn6"]
+albedo_color = Color(1, 0.58431375, 1, 1)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n43a"]
+albedo_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+albedo_texture = ExtResource("4_3wvtt")
+roughness = 0.9
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgun3"]
+size = Vector3(1500, 1, 1500)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7pxhf"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Node3D" type="Node3D" unique_id=1507958794]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=876150353]
+environment = SubResource("Environment_lg26c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1277391171]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="cylinder2" type="CSGCylinder3D" parent="." unique_id=355213840]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.6516075, 0)
+use_collision = true
+radius = 5.0
+height = 109.0
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="cylinder2" unique_id=814010457]
+operation = 2
+radius = 4.4
+height = 109.0
+sides = 6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="cylinder2" unique_id=478808519]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1, -4.3711385e-08, -4.371139e-08, -4.371139e-08, -4.371139e-08, 1, 0, 0, 0)
+operation = 2
+radius = 4.4
+height = 12.0
+sides = 6
+
+[node name="dziura_rury6" type="CSGCylinder3D" parent="cylinder2" unique_id=928742811]
+transform = Transform3D(1.3151259e-07, -1.0028859, -4.3837538e-08, 1.0028859, 1.315126e-07, -4.3837534e-08, 4.3837534e-08, -4.3837524e-08, 1.0028859, 4.0490894, 12, 9.536743e-07)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="dziura_rury7" type="CSGCylinder3D" parent="cylinder2" unique_id=181031923]
+transform = Transform3D(1.3151259e-07, -1.0028859, -4.3837538e-08, 1.0028859, 1.315126e-07, -4.3837534e-08, 4.3837534e-08, -4.3837524e-08, 1.0028859, -5.9509106, 12.178361, 9.536743e-07)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="dziura_rury8" type="CSGCylinder3D" parent="cylinder2" unique_id=183007077]
+transform = Transform3D(1.3151259e-07, -1.0028859, -4.3837538e-08, 1.0028859, 1.315126e-07, -4.3837534e-08, 4.3837534e-08, -4.3837524e-08, 1.0028859, -5.9509106, -12, -9.536743e-07)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="dziura_rury9" type="CSGCylinder3D" parent="cylinder2" unique_id=771083788]
+transform = Transform3D(1.3151259e-07, -1.0028859, -4.3837538e-08, 1.0028859, 1.315126e-07, -4.3837534e-08, 4.3837534e-08, -4.3837524e-08, 1.0028859, -5.9509106, -25, -9.536743e-07)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="szyba5" type="CSGCylinder3D" parent="cylinder2" unique_id=889456257]
+transform = Transform3D(-1.1137135, -2.1200197e-09, -1.9123855e-15, 9.7363966e-08, -0.024250189, -1.0181499e-07, 4.2559314e-15, -2.1200188e-09, 1.1646259, 0.0031929016, 53.054344, 0.06320763)
+radius = 4.0424805
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="szyba6" type="CSGCylinder3D" parent="cylinder2" unique_id=139094196]
+transform = Transform3D(-1.1137135, -2.1200197e-09, -1.9123855e-15, 9.7363966e-08, -0.024250189, -1.0181499e-07, 4.2559314e-15, -2.1200188e-09, 1.1646259, 0.0031929016, -52.945656, 0.06320381)
+radius = 4.0424805
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="dziura_rury10" type="CSGCylinder3D" parent="cylinder2" unique_id=2050555396]
+transform = Transform3D(1.3151259e-07, -1.0028859, -4.3837538e-08, 1.0028859, 1.315126e-07, -4.3837534e-08, 4.3837534e-08, -4.3837524e-08, 1.0028859, -5.9509106, -38, -1.9073486e-06)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="cylinder" type="CSGCylinder3D" parent="cylinder2" unique_id=1991821117]
+transform = Transform3D(-1.0028859, -4.734454e-08, -3.8323993e-15, 8.7675076e-08, -0.54155844, -8.7675076e-08, 3.8323993e-15, -4.7344543e-08, 1.0028859, 32, 0, 0)
+use_collision = true
+radius = 5.0
+height = 109.0
+sides = 6
+
+[node name="dziura_rury" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=621713480]
+transform = Transform3D(-4.371138e-08, 0.54, 4.371139e-08, -1.8518518, -4.371138e-08, -8.094701e-08, -4.371139e-08, -2.3604152e-08, 1, -7.913887, -16.616188, 0.063020706)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="dziura_rury3" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=1013747546]
+transform = Transform3D(-4.371138e-08, 0.54, 4.371139e-08, -1.8518518, -4.371138e-08, -8.094701e-08, -4.371139e-08, -2.3604152e-08, 1, -7.998989, 18.569, 0.06302067)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="dziura_rury2" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=1209928555]
+transform = Transform3D(-4.371138e-08, 0.54, 4.371139e-08, -1.8518518, -4.371138e-08, -8.094701e-08, -4.371139e-08, -2.3604152e-08, 1, -7.998989, -33.282852, 0.06301945)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="dziura_rury4" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=1174646178]
+operation = 2
+radius = 4.4
+height = 109.0
+sides = 6
+
+[node name="dziura_rury5" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=677464549]
+transform = Transform3D(-4.371138e-08, 1, 4.371139e-08, -1.8518518, -8.0947004e-08, -8.094701e-08, -4.371139e-08, -4.3711385e-08, 1, 1.659668, -1.343451e-07, -7.254638e-08)
+operation = 2
+radius = 4.4
+height = 8.680664
+sides = 6
+
+[node name="okno2" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=941430186]
+transform = Transform3D(-4.371139e-08, 0.17974196, 4.371139e-08, -1.851852, -1.4549572e-08, -8.094701e-08, -4.3711392e-08, -7.85677e-09, 1, -4.6690025, -16.616186, 0.063019834)
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/cylinder/okno2" unique_id=1867604983]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba2" type="CSGCylinder3D" parent="cylinder2/cylinder/okno2" unique_id=900203175]
+transform = Transform3D(0.99999994, -2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -4.7683716e-06, -6.612854, 9.536743e-07)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=137533045]
+transform = Transform3D(-4.371139e-08, 0.17974196, 4.371139e-08, -1.851852, -1.4549572e-08, -8.094701e-08, -4.3711392e-08, -7.85677e-09, 1, -4.6690025, -32.97121, 0.063019454)
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/cylinder/okno" unique_id=300901704]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba" type="CSGCylinder3D" parent="cylinder2/cylinder/okno" unique_id=322091462]
+transform = Transform3D(0.99999994, -2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, 0.16828156, -6.612854, 9.536743e-07)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno3" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=2120286374]
+transform = Transform3D(-4.371139e-08, 0.17974196, 4.371139e-08, -1.851852, -1.4549572e-08, -8.094701e-08, -4.3711392e-08, -7.85677e-09, 1, -4.6690025, 18.498632, 0.06302067)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/cylinder/okno3" unique_id=1521741720]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/cylinder/okno3" unique_id=1765085716]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="szyba4" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=401230008]
+transform = Transform3D(1.1105087, 1.110223e-15, -2.5307928e-15, -7.1054274e-14, 0.044778526, 2.9842795e-13, 1.567011e-20, 0, 1.1612746, -0.24178123, -51.802982, 0.06302261)
+radius = 4.0424805
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="szyba5" type="CSGCylinder3D" parent="cylinder2/cylinder" unique_id=1653877639]
+transform = Transform3D(1.1105087, 1.110223e-15, -2.5307917e-15, -7.1054274e-14, 0.044778526, 3.126388e-13, 1.567011e-20, 0, 1.1612746, -0.24179268, 51.6023, 0.06302643)
+radius = 4.0424805
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno4" type="CSGCylinder3D" parent="cylinder2" unique_id=930717985]
+transform = Transform3D(1.3151262e-07, -0.18026069, -4.3837538e-08, 1.0028862, 2.3638336e-08, -4.3837534e-08, 4.383756e-08, -7.879444e-09, 1.0028859, 4.206362, 11.98191, 0.06320286)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/okno4" unique_id=462439696]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/okno4" unique_id=1834575593]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno5" type="CSGCylinder3D" parent="cylinder2" unique_id=346824792]
+transform = Transform3D(-2.1918771e-07, 0.18026069, 4.383753e-08, -1.002886, -3.939722e-08, -4.3837545e-08, -4.383753e-08, -7.8794455e-09, 1.0028859, -4.171404, 11.98191, 0.06320286)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/okno5" unique_id=695547111]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/okno5" unique_id=2036886624]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno6" type="CSGCylinder3D" parent="cylinder2" unique_id=643877950]
+transform = Transform3D(-2.1918771e-07, 0.18026069, 4.383753e-08, -1.002886, -3.939722e-08, -4.3837545e-08, -4.383753e-08, -7.8794455e-09, 1.0028859, -4.171404, -12.01809, 0.06320095)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/okno6" unique_id=1964875482]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/okno6" unique_id=1517357263]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno7" type="CSGCylinder3D" parent="cylinder2" unique_id=2077880589]
+transform = Transform3D(-2.1918771e-07, 0.18026069, 4.383753e-08, -1.002886, -3.939722e-08, -4.3837545e-08, -4.383753e-08, -7.8794455e-09, 1.0028859, -4.171404, -25.01809, 0.06320095)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/okno7" unique_id=18123455]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/okno7" unique_id=1455912021]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="okno8" type="CSGCylinder3D" parent="cylinder2" unique_id=1506011737]
+transform = Transform3D(-2.1918771e-07, 0.18026069, 4.383753e-08, -1.002886, -3.939722e-08, -4.3837545e-08, -4.383753e-08, -7.8794455e-09, 1.0028859, -4.171404, -38.01809, 0.0632)
+material_override = SubResource("StandardMaterial3D_1nmn6")
+radius = 4.2
+height = 20.0
+sides = 16
+
+[node name="dziura_okna" type="CSGCylinder3D" parent="cylinder2/okno8" unique_id=468819799]
+transform = Transform3D(1, 0, 0, 0, 1, 8.627446e-22, 0, 4.0590092e-22, 1, 0, 0, 0)
+operation = 2
+radius = 3.8
+height = 20.0
+sides = 16
+
+[node name="szyba3" type="CSGCylinder3D" parent="cylinder2/okno8" unique_id=26635678]
+transform = Transform3D(0.99999994, 2.220446e-16, -4.2351647e-22, 5.684342e-14, 0.13452843, 2.8421713e-14, -4.2351647e-22, 1.1102232e-16, 0.9999999, -0.038002014, -6.6128387, 0)
+radius = 3.8
+height = 20.0
+sides = 16
+material = ExtResource("1_fhddm")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." unique_id=841543776]
+transform = Transform3D(-4.371139e-08, 0.54, 4.371139e-08, 0, -2.360415e-08, 1, 1, 2.360415e-08, 1.9106855e-15, 0, 8.6516075, 0)
+use_collision = true
+radius = 5.0
+height = 109.0
+sides = 6
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D2" unique_id=990797337]
+operation = 2
+radius = 4.4
+height = 109.0
+sides = 6
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCylinder3D2" unique_id=1409085301]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, -1.8518518, -8.094701e-08, -8.094701e-08, -4.371139e-08, -4.3711385e-08, 1, 0, 0, 0)
+operation = 2
+radius = 4.4
+height = 12.0
+sides = 6
+
+[node name="Player" parent="." unique_id=693192409 instance=ExtResource("2_pxydv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.548996, 7.572467, -0.29878378)
+
+[node name="Ksiezyc" parent="." unique_id=240221420 instance=ExtResource("3_einyj")]
+
+[node name="Plane" parent="Ksiezyc" index="0" unique_id=1984681636]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_3n43a")
+
+[node name="Area3D" type="Area3D" parent="Ksiezyc" unique_id=111861496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.38239, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ksiezyc/Area3D" unique_id=1309348826]
+shape = SubResource("BoxShape3D_vgun3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=23530539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9807043, 0)
+light_color = Color(0.54901963, 1, 1, 1)
+light_energy = 5.277
+omni_range = 11.665
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="." unique_id=519212692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.764038, 6.9807043, -10.03301)
+light_color = Color(0.54901963, 1, 1, 1)
+light_energy = 3.534
+omni_range = 9.259
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="." unique_id=1874839752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.764038, 6.9807043, 11.441743)
+light_color = Color(0.54901963, 1, 1, 1)
+light_energy = 2.426
+omni_range = 21.601
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." unique_id=2033590864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9807043, 31.28325)
+light_color = Color(0.54901963, 1, 1, 1)
+omni_range = 11.665
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=1390027981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.681316, 6.9807043, 0)
+light_color = Color(0.54901963, 1, 1, 1)
+omni_range = 11.665
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=646888591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.9807043, -36.402706)
+light_color = Color(0.94509804, 0.28235295, 0.59607846, 1)
+light_energy = 3.851
+omni_range = 20.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1909239116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.181929, 6.9807043, 0)
+light_color = Color(0.54901963, 1, 1, 1)
+omni_range = 11.665
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1081659538]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=962415808]
+transform = Transform3D(0.8610145, 0, 0.50858057, 0.060394257, 0.9929241, -0.102246, -0.5049819, 0.11875062, 0.85492206, 44.449745, 6.658822, 17.107903)
+
+[node name="Label" type="Label" parent="SubViewport" unique_id=850135060]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "siema"
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1900050599]
+transform = Transform3D(0.08829331, 0, -0.9960945, 0, 1, 0, 0.9960945, 0, 0.08829331, 34.8432, 9.695924, 0)
+texture = SubResource("ViewportTexture_7pxhf")
+
+[editable path="Ksiezyc"]

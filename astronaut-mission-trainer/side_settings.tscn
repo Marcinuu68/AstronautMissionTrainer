@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://f12avouo3qxj"]
+
+[ext_resource type="LabelSettings" uid="uid://dypfir4vn6xap" path="res://Outstanding.tres" id="1_oalnw"]
+[ext_resource type="Script" uid="uid://drt4co3eb24xg" path="res://side_settings.gd" id="1_t71w0"]
+
+[node name="ColorRect" type="ColorRect" unique_id=1748918039]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3882353, 0.3882353, 0.3882353, 0.8901961)
+script = ExtResource("1_t71w0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1125698925]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9915818, 1.1586666)
+color = Color(0.3892863, 0.38928673, 0.3892865, 0.8901961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=674704717]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -84.5
+offset_right = 118.0
+offset_bottom = 84.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1535587269]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = ExtResource("1_oalnw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1810351234]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=545831049]
+layout_mode = 2
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=684302784]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 200.0
+value = 100.0
+ticks_position = 2
+
+[node name="Fullscreen switch" type="CheckButton" parent="VBoxContainer" unique_id=1837780464]
+layout_mode = 2
+button_pressed = true
+text = "Fullscreen"
+
+[node name="Return" type="Button" parent="VBoxContainer" unique_id=1224347138]
+layout_mode = 2
+text = "Return"
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volume" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/Fullscreen switch" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_back_button_pressed"]
