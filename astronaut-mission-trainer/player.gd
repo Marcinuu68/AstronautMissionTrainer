@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-@export var speed: float = 3.0
+@export var current_speed: float
+@export var walk_speed: float = 4.0
+@export var sprint_speed: float = 8.0
 @export var mouse_sensitivity: float = 0.002
 
 @onready var ray_cast: RayCast3D = $Head/RayCast3D
@@ -10,6 +12,7 @@ extends CharacterBody3D
 #var side_menu_scene = preload("res://side_menu.tscn")
 var menu_instance = null
 var is_paused: bool = false
+var is_sprinting: bool = false
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -29,7 +32,7 @@ func pause_game() -> void:
 	
 	# Tworzy instancję menu kolegi i dodaje ją do ekranu
 	#var menu_instance = side_menu_scene.instantiate()
-	get_tree().root.add_child(menu_instance)
+	#get_tree().root.add_child(menu_instance)
 
 func resume_game() -> void:
 	is_paused = false
@@ -51,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var hit_object = ray_cast.get_collider()
 			if hit_object && hit_object.has_method("interact"):
 				hit_object.interact()
-				
+	
 	# Obsługa rozglądania się myszką
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
@@ -63,6 +66,12 @@ func _physics_process(delta: float) -> void:
 	if is_paused:
 		return
 
+	# Płynne sprawdzanie sprintu w każdym klatkuj fizyki (czy klawisz jest wciśnięty)
+	if Input.is_action_pressed("sprint"):
+		current_speed = sprint_speed
+	else:
+		current_speed = walk_speed
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -70,10 +79,10 @@ func _physics_process(delta: float) -> void:
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
