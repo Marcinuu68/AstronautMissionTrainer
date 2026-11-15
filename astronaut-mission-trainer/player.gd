@@ -9,7 +9,7 @@ extends CharacterBody3D
 @onready var head: Node3D = $Head
 
 # Wczytanie sceny menu od kolegi (dopasuj ścieżkę, jeśli plik jest w innym folderze)
-#var side_menu_scene = preload("res://side_menu.tscn")
+var side_menu_scene = preload("res://side_menu.tscn")
 var menu_instance = null
 var is_paused: bool = false
 var is_sprinting: bool = false
@@ -31,8 +31,8 @@ func pause_game() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE # Odblokowuje kursor myszy
 	
 	# Tworzy instancję menu kolegi i dodaje ją do ekranu
-	#var menu_instance = side_menu_scene.instantiate()
-	#get_tree().root.add_child(menu_instance)
+	var menu_instance = side_menu_scene.instantiate()
+	get_tree().root.add_child(menu_instance)
 
 func resume_game() -> void:
 	is_paused = false

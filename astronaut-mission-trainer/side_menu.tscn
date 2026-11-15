@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ymniehxr5qi7"]
+
+[ext_resource type="Script" uid="uid://dphup4x8xex3n" path="res://side_menu.gd" id="1_pxblx"]
+[ext_resource type="LabelSettings" uid="uid://dypfir4vn6xap" path="res://Outstanding.tres" id="2_t4k15"]
+
+[node name="Control" type="Control" unique_id=730816070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pxblx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=656335670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.38039216)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=633933804]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 188.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 0.38039216)
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=800031751]
+layout_mode = 0
+offset_right = 183.0
+offset_bottom = 45.0
+text = "Menu"
+label_settings = ExtResource("2_t4k15")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2" unique_id=1160760219]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 183.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="ColorRect2/VBoxContainer" unique_id=2048067336]
+layout_mode = 2
+mouse_default_cursor_shape = 10
+text = "Resume"
+
+[node name="Button2" type="Button" parent="ColorRect2/VBoxContainer" unique_id=940616631]
+layout_mode = 2
+mouse_default_cursor_shape = 6
+text = "Settings"
+
+[node name="Button3" type="Button" parent="ColorRect2/VBoxContainer" unique_id=1954441361]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Return to main menu"
+
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Button2" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="ColorRect2/VBoxContainer/Button3" to="." method="_on_quit_button_pressed"]
